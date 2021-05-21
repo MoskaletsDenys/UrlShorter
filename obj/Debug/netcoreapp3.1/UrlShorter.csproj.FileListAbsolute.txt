@@ -76,7 +76,6 @@ C:\Users\Denys\source\repos\UrlShorter\obj\Debug\netcoreapp3.1\Razor\Views\View\
 C:\Users\Denys\source\repos\UrlShorter\obj\Debug\netcoreapp3.1\Razor\Views\View\Privacy.cshtml.g.cs
 C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\UrlShorter.exe
 C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\UrlShorter.deps.json
 C:\Users\Denys\Desktop\UrlShorter\bin\Debug\netcoreapp3.1\UrlShorter.runtimeconfig.json
@@ -150,3 +149,4 @@ C:\Users\Denys\Desktop\UrlShorter\obj\Debug\netcoreapp3.1\staticwebassets\UrlSho
 C:\Users\Denys\Desktop\UrlShorter\obj\Debug\netcoreapp3.1\UrlShorter.dll
 C:\Users\Denys\Desktop\UrlShorter\obj\Debug\netcoreapp3.1\UrlShorter.pdb
 C:\Users\Denys\Desktop\UrlShorter\obj\Debug\netcoreapp3.1\UrlShorter.genruntimeconfig.cache
+C:\Users\Denys\Desktop\UrlShorter\obj\Debug\netcoreapp3.1\scopedcss\bundle\UrlShorter.styles.css

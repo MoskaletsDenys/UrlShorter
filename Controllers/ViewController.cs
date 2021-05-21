@@ -23,14 +23,14 @@ namespace UrlShorter.Controllers
                 var longLink = _shorterUsage.GetLongLinkByShort(shortLink);
                 return Redirect(longLink);
             }
-            ViewBag.Host = String.Format("https://{0}/", Request.Host.Value);
-            return View(_shorterUsage.GetAllLinks());
+            return View("Index", "");
         }
 
         public IActionResult Generate(string longLink)
         {
-            _shorterUsage.GenerateAndSave(longLink);
-            return RedirectToAction("Index");
+            ViewBag.Long = longLink;
+            string fullShortLink = String.Format ("https://{0}/{1}",Request.Host.Value,_shorterUsage.GenerateOrReturnExisting(longLink));
+            return View("Index",fullShortLink);
         }
 
         public IActionResult DeleteAllLinks()

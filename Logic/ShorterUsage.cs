@@ -16,7 +16,7 @@ namespace UrlShorter.Logic
             _shorterAlgorithm = new ShorterAlgorithm();
         }
 
-        public void GenerateAndSave(string longLink)
+        public string GenerateOrReturnExisting(string longLink)
         {
             string shortLink;
             do
@@ -25,9 +25,9 @@ namespace UrlShorter.Logic
             } 
             while (_linksDirectory.ShortExist(shortLink));
 
-            Link link = new Link(longLink,shortLink);
-            _linksDirectory.AddLink(link);
+            return _linksDirectory.SaveOrReturnExisting(longLink,shortLink);
         }
+
         public string GetLongLinkByShort(string shortLink)
         {
             return _linksDirectory.GetLongLinkByShort(shortLink);

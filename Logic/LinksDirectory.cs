@@ -15,14 +15,19 @@ namespace UrlShorter.Logic
             _linksContext = context;
         }
 
-        public void AddLink(Link link)
+        public string SaveOrReturnExisting(string longLink,string shortLink)
         {
-            if(!LongExist(link.LongLink))
+            if(LongExist(longLink))
             {
-                _linksContext.Links.Add(link);            
+                return GetShortLinkByLong(longLink);
+            }
+            else
+            {
+                _linksContext.Links.Add(new Link(longLink,shortLink));            
                 _linksContext.SaveChanges();            
                 if (_linksContext.Links.Count() > DeleteIfMoreThan)
                     RemoveEarlyRecords(DeleteCount);
+                return shortLink;
             }
         }
 
@@ -34,6 +39,11 @@ namespace UrlShorter.Logic
         public string GetLongLinkByShort(string shortLink)
         {
             return _linksContext.Links.FirstOrDefault(link => link.ShortLink == shortLink).LongLink;
+        }
+        
+        public string GetShortLinkByLong(string longLink)
+        {
+            return _linksContext.Links.FirstOrDefault(link => link.LongLink == longLink).ShortLink;
         }
 
         public bool ShortExist(string shortLink)
@@ -71,10 +81,12 @@ namespace UrlShorter.Logic
             foreach(var link in _linksContext.Links)
             {
                 if (count > 0)
+                {
                     _linksContext.Links.Remove(link);
+                    count--;
+                }
                 else
                     break;
-                count--;
             }
             _linksContext.SaveChanges();
         }

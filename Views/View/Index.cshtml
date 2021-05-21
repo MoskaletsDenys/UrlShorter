@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UrlShorter.Models.Link>
+﻿@model string
 @{
     ViewData["Title"] = "URL Shorter";
 }
@@ -7,7 +7,7 @@
     <form asp-action="generate" asp-controller="View">
         <div class="form-group">
             <label class="control-label">Enter long link</label>
-            <input type="text" name="longLink" class="form-control" />
+            <input type="text" name="longLink" class="form-control" value="@ViewBag.Long"/>
         </div>
         <div class="form-group">
             <input type="submit" value="Generate" class="btn btn-default" />
@@ -15,22 +15,22 @@
     </form>
 </div>
 
-<a asp-action="DeleteAllLinks">Delete all links</a>
+<a href="@Model">@Model</a>
 
-<table class="table">
-    <tr>
-        <td>Id</td>
-        <td>Long link</td>
-        <td>Short link</td>
-        <td>Creation time</td>
-    </tr>
-    @foreach (var item in Model)
-    {
+@*<table class="table">
         <tr>
-            <td>@item.Id</td>
-            <td>@item.LongLink</td>
-            <td><a href="@ViewBag.Host@item.ShortLink">@ViewBag.Host@item.ShortLink</a></td>
-            <td>@item.CreationDateTime</td>
+            <td>Id</td>
+            <td>Long link</td>
+            <td>Short link</td>
+            <td>Creation time</td>
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.LongLink</td>
+                <td><a href="@ViewBag.Host@item.ShortLink">@ViewBag.Host@item.ShortLink</a></td>
+                <td>@item.CreationDateTime</td>
+            </tr>
+        }
+    </table>*@
